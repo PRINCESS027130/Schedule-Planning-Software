@@ -1,0 +1,50 @@
+﻿@model TimeTableManagement.Models.CLASS_TBL
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CLASS_TBL</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DEGREE_TBL.DEGREE_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DEGREE_TBL.DEGREE_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SESSION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SESSION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SECTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SECTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SHIFT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SHIFT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CLASS_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

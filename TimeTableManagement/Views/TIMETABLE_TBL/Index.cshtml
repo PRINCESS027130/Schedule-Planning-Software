@@ -1,0 +1,84 @@
+﻿@model IEnumerable<TimeTableManagement.Models.TIMETABLE_TBL>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create", "TIMETABLE_TBL")" class="glyphicon glyphicon-pencil">Create New</a>
+   
+</p>
+<div class="table-agile-info">
+    <table class="table">
+        <tr>
+            <th>
+                TEACHER NAME
+            </th>
+            <th>
+                SESSION
+            </th>
+
+
+            <th>  SHIFT</th>
+            <th>
+                SUBJECT
+            </th>
+            <th>
+                DEGREE
+            </th>
+            <th>
+                DEPARTMENT
+            </th>
+            <th>  SECTION</th>
+            <th>
+                SLOT
+            </th>
+            <th>
+                ROOM NO
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @item.TEACHER_TBL.TEACHER_NAME
+        </td>
+        <td>
+            @item.CLASS_TBL.SESSION
+
+
+        </td>
+
+        <td>@item.CLASS_TBL.SHIFT</td>
+        <td>
+            @item.COURSE_ASSIGN_TBL.COURSE_TBL.COURSE_NAME
+        </td>
+        <td>
+            @item.COURSE_ASSIGN_TBL.DEGREE_TBL.DEGREE_NAME
+        </td>
+        <td>
+            @item.COURSE_ASSIGN_TBL.DEGREE_TBL.DEPARTMENT_TBL.DEPARTMENT_NAME
+        </td>
+        <td>@item.CLASS_TBL.SECTION</td>
+        <td>
+            @item.SLOT_TBL.SLOT_START_TIME.ToString("hh:mm tt") _
+
+            @item.SLOT_TBL.SLOT_END_TIME.ToString("hh:mm tt")
+        </td>
+        <td>
+            @item.ROOM_TBL.ROOM_NO
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "TIMETABLE_TBL", new { id=item.TIMETABLE_ID })" class="glyphicon glyphicon-edit"></a> |
+            <a href="@Url.Action("Details", "TIMETABLE_TBL", new { id=item.TIMETABLE_ID })" class="glyphicon glyphicon-book"></a>  |
+            <a href="@Url.Action("Delete", "TIMETABLE_TBL", new { id=item.TIMETABLE_ID })" class="glyphicon glyphicon-trash"></a>
+        </td>
+    </tr>
+        }
+
+    </table>
+    </div>

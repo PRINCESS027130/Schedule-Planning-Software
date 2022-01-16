@@ -1,0 +1,42 @@
+﻿@model IEnumerable<TimeTableManagement.Models.SLOT_TBL>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create", "SLOT_TBL")" class="glyphicon glyphicon-pencil">Create New</a> 
+</p>
+<div class="table-agile-info">
+    <table class="table">
+        <tr>
+            <th>
+                SLOT START TIME
+            </th>
+            <th>
+               SLOT END TIME
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.SLOT_START_TIME
+                </td>
+                <td>
+                    @item.SLOT_END_TIME
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "SLOT_TBL", new { id=item.SLOT_ID })" class="glyphicon glyphicon-edit"></a> |
+                    <a href="@Url.Action("Details", "SLOT_TBL", new { id=item.SLOT_ID })" class="glyphicon glyphicon-book"></a>  |
+                    <a href="@Url.Action("Delete", "SLOT_TBL", new { id=item.SLOT_ID })" class="glyphicon glyphicon-trash"></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

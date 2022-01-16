@@ -1,0 +1,70 @@
+﻿@model IEnumerable<TimeTableManagement.Models.ADMIN_TBL>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+
+    <a href="@Url.Action("Create", "ADMIN_TBL")" class="glyphicon glyphicon-pencil">Create New</a>
+</p>
+<div class="table-agile-info">
+    <table class="table">
+
+        <tr>
+            <th>
+                ADMIN IMAGE
+            </th>
+            <th>
+                ADMIN NAME
+            </th>
+            <th>
+                ADMIN EMAIL
+            </th>
+            <th>
+                ADMIN PASSWORD
+            </th>
+            <th>
+                ADMIN PHNO
+            </th>
+            <th>
+                ADMIN ADDRESS
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.ADMIN_IMAGE
+                   
+                    
+                </td>
+                <td>
+                    @item.ADMIN_NAME
+                </td>
+                <td>
+                    @item.ADMIN_EMAIL
+                </td>
+                <td>
+                    @item.ADMIN_PASSWORD
+                </td>
+                <td>
+                    @item.ADMIN_PHNO
+                </td>
+                <td>
+                    @item.ADMIN_ADDRESS
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "ADMIN_TBL", new { id=item.ADMIN_ID })" class="glyphicon glyphicon-edit"></a> |
+                    <a href="@Url.Action("Details", "ADMIN_TBL", new { id=item.ADMIN_ID })" class="glyphicon glyphicon-book"></a>  |
+                    <a href="@Url.Action("Delete", "ADMIN_TBL", new { id=item.ADMIN_ID })" class="glyphicon glyphicon-trash"></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

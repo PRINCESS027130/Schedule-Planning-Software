@@ -1,0 +1,42 @@
+﻿@model IEnumerable<TimeTableManagement.Models.ROOM_TBL>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create", "ROOM_TBL")" class="glyphicon glyphicon-pencil">Create New</a>
+</p>
+<div class="table-agile-info">
+    <table class="table">
+        <tr>
+            <th>
+                DEPARTMENT NAME
+            </th>
+            <th>
+                ROOM NO
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.DEPARTMENT_TBL.DEPARTMENT_NAME
+                </td>
+                <td>
+                    @item.ROOM_NO
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "ROOM_TBL", new { id = item.ROOM_ID })" class="glyphicon glyphicon-edit"></a> |
+                   <a href="@Url.Action("Details", "ROOM_TBL", new { id = item.ROOM_ID })" class="glyphicon glyphicon-book"></a>  |
+                <a href="@Url.Action("Delete", "ROOM_TBL", new { id = item.ROOM_ID })" class="glyphicon glyphicon-trash"></a> 
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

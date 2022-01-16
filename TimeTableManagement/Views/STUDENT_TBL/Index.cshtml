@@ -1,0 +1,58 @@
+﻿@model IEnumerable<TimeTableManagement.Models.STUDENT_TBL>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create", "STUDENT_TBL")" class="glyphicon glyphicon-pencil">Create New</a>
+</p>
+<div class="table-agile-info">
+    <table class="table">
+        <tr>
+            <th>
+                
+            </th>
+            <th>
+                STUDENT NAME
+            </th>
+            <th>
+                STUDENT EMAIL
+            </th>
+            <th>
+              STUDENT PASSWORD
+            </th>
+            <th>CLASS SESSION</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                   
+                </td>
+                <td>
+                    @item.STUDENT_NAME
+                </td>
+                <td>
+                    @item.STUDENT_EMAIL
+                </td>
+                <td>
+                    @item.STUDENT_PASSWORD
+                </td>
+                <td>
+                    @item.CLASS_TBL.SESSION
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "STUDENT_TBL", new { id=item.STUDENT_ID })" class="glyphicon glyphicon-edit"></a> |
+                    <a href="@Url.Action("Details", "STUDENT_TBL", new { id=item.STUDENT_ID })" class="glyphicon glyphicon-book"></a>  |
+                    <a href="@Url.Action("Delete", "STUDENT_TBL", new { id=item.STUDENT_ID })" class="glyphicon glyphicon-trash"></a>
+
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>
